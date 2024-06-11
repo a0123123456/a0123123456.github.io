@@ -13,24 +13,12 @@
 
         .top {
             background-color: rgb(200, 205, 210);
-            /* padding-left: 416px;
-            padding-right: 416px;
-            padding-top: 64px;
-            padding-bottom: 64px; */
             justify-content: center;
             text-align: center;
         }
 
         .bot {
             background-color: rgb(247, 248, 249);
-            /* padding-left: 416px;
-            padding-right: 416px;
-            padding-top: 64px;
-            padding-bottom: 64px; */
-            padding-left: 10%;
-            padding-right: 5%;
-            padding-top: 5%;
-            padding-bottom: 10%;
             height: 700px;
             text-align: center;
         }
@@ -43,10 +31,11 @@
         }
 
         .bot h2 {
+            margin-bottom: 40px;
             color: rgb(41, 36, 75);
             font-size: 28px;
             font-weight: 700;
-            margin-bottom: 40px;
+            padding-top: 60px;
         }
 
         .bot-icon h3 {
@@ -61,8 +50,9 @@
         }
 
         .bot-all-icon {
-            display: flex;
-            flex-wrap: wrap;
+            /* display: flex;
+            flex-wrap: wrap; */
+            background-color: rgb(247, 248, 249);
             justify-content: center;
             gap: 5px;
         }
@@ -82,17 +72,17 @@
         }
 
         .card-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            /* display: flex; */
+            /* flex-wrap: wrap; */
+            /* justify-content: center; */
+            align-items: center;
         }
 
         .card {
             width: 1000px;
             height: 450px;
             display: flex;
-            margin-top: 80px;
-            
+            margin:80px auto 0 auto;
             gap: 50px;
         }
 
@@ -161,6 +151,19 @@
 
         #bot-card {
             margin-bottom: 80px;
+        }
+        .all{
+            margin: auto;
+        }
+        .bot-top3-icon{
+            display: flex;
+            justify-content: center;
+            margin: 50px auto 0 auto;
+        }
+        .bot-bot3-icon{
+            display: flex;
+            justify-content: center;
+            margin: 50px auto 0 auto;
         }
     </style>
 </head>
@@ -309,42 +312,46 @@
 
 
         </div>
-        <section class="bot">
+        <div class="bot">
             <h2>更多功能與服務</h2>
 
             <div class="bot-all-icon">
-                <div class="bot-icon">
-                    <img src="/Homework/hw2-ShopLine/asset 0.svg" alt="">
-                    <h3>強大庫存與訂單系統</h3>
-                    <p>從商品數量、貨況到訂單付款狀態、物流貨態一目瞭然，提升營運效率超有感。</p>
+                <div class="bot-top3-icon">
+                    <div class="bot-icon">
+                        <img src="/Homework/hw2-ShopLine/asset 0.svg" alt="">
+                        <h3>強大庫存與訂單系統</h3>
+                        <p>從商品數量、貨況到訂單付款狀態、物流貨態一目瞭然，提升營運效率超有感。</p>
+                    </div>
+                    <div class="bot-icon">
+                        <img src="/Homework/hw2-ShopLine/asset 1.svg" alt="">
+                        <h3>即時化商店業績分析</h3>
+                        <p>圖表化報表助你一手掌握商店概況，讓數據助攻企業成長，營運策略更有方向。</p>
+                    </div>
+                    <div class="bot-icon">
+                        <img src="/Homework/hw2-ShopLine/asset 2.svg" alt="">
+                        <h3>多國語系、幣值切換</h3>
+                        <p>想做跨境電商也ＯＫ！提供語言、幣別、稅金等進階功能，友善應對海外消費需求。</p>
+                    </div>
                 </div>
-                <div class="bot-icon">
-                    <img src="/Homework/hw2-ShopLine/asset 1.svg" alt="">
-                    <h3>即時化商店業績分析</h3>
-                    <p>圖表化報表助你一手掌握商店概況，讓數據助攻企業成長，營運策略更有方向。</p>
-                </div>
-                <div class="bot-icon">
-                    <img src="/Homework/hw2-ShopLine/asset 2.svg" alt="">
-                    <h3>多國語系、幣值切換</h3>
-                    <p>想做跨境電商也ＯＫ！提供語言、幣別、稅金等進階功能，友善應對海外消費需求。</p>
-                </div>
-                <div class="bot-icon">
-                    <img src="/Homework/hw2-ShopLine/asset 3.svg" alt="">
-                    <h3>專業顧問線上支援</h3>
-                    <p>迅速、透明的溝通管道，協助你快速解決從線上到線下、從在地到海外的網店疑難。</p>
-                </div>
-                <div class="bot-icon">
-                    <img src="/Homework/hw2-ShopLine/asset 4.svg" alt="">
-                    <h3>廣告行銷加值服務</h3>
-                    <p>由官方認證的專業投手團隊，協助品牌投遞 Facebook、Google、LINE 等廣告。</p>
-                </div>
-                <div class="bot-icon">
-                    <img src="/Homework/hw2-ShopLine/asset 5.svg" alt="">
-                    <h3>品牌專屬成長社群</h3>
-                    <p>致力為品牌店家打造能深度交流且互助的生態體系，是拓展人脈、商機的絕佳場域。</p>
+                <div class="bot-bot3-icon">
+                    <div class="bot-icon">
+                        <img src="/Homework/hw2-ShopLine/asset 3.svg" alt="">
+                        <h3>專業顧問線上支援</h3>
+                        <p>迅速、透明的溝通管道，協助你快速解決從線上到線下、從在地到海外的網店疑難。</p>
+                    </div>
+                    <div class="bot-icon">
+                        <img src="/Homework/hw2-ShopLine/asset 4.svg" alt="">
+                        <h3>廣告行銷加值服務</h3>
+                        <p>由官方認證的專業投手團隊，協助品牌投遞 Facebook、Google、LINE 等廣告。</p>
+                    </div>
+                    <div class="bot-icon">
+                        <img src="/Homework/hw2-ShopLine/asset 5.svg" alt="">
+                        <h3>品牌專屬成長社群</h3>
+                        <p>致力為品牌店家打造能深度交流且互助的生態體系，是拓展人脈、商機的絕佳場域。</p>
+                    </div>
                 </div>
             </div>
-        </section>
+        </ㄎ>
     </div>
 </body>
 
