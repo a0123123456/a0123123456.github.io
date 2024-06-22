@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            /* border: solid red; */
+            border-bottom: 1px gray solid;
+            display: flex;
+            width: 375px;
+            height: 45px;
+            align-items: center;
+            justify-items: center;
+            margin: 0 auto 0 auto;
+        }
+
+        .header img {
+            vertical-align: top;
+        }
+
+        .header-topic img {
+            width: 100%;
+        }
+
+        .header-icon {
+            /* border: solid purple; */
+            width: 56px;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+        }
+
+        .header-topic {
+            /* border: solid blue; */
+            width: 150px;
+        }
+
+        .header-about {
+            /* border: solid green; */
+            width: 80px;
+            font-size: 10px;
+            color: rgb(246, 92, 93);
+            flex-grow: 1;
+            align-content: center;
+            text-align: right;
+            padding-right: 1rem;
+            font-weight: 700;
+        }
+        .logo{
+            display: none;
+        }
+        /* ------------------------------------------------------------------------------- */
+        .main-topic {
+            /* border: solid red 1px; */
+            margin: 51px auto 0 auto;
+            width: 375px;
+            box-sizing: border-box;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .main-topic h2 {
+            /* border: solid blue 1px; */
+            font-size: 72px;
+            line-height: 85%;
+            font-weight: 500;
+            letter-spacing: -0.04em;
+            margin-bottom: 1rem;
+        }
+
+        .main-topic h1 {
+            /* border: solid green 1px; */
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 150%;
+        }
+        /* ------------------------------------------------------------------------------- */
+        .card-list{
+            width: 375px;
+            margin: 0 auto;
+        }
+
+        .card{
+            /* border: solid blue 1px; */
+        }
+        .pic{
+            margin-top: 2rem;
+        }
+        .pic img{
+            width: 100%;
+            vertical-align: top;
+        }
+        .card-list .card:nth-child(2) .pic img{
+            box-sizing: border-box;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            border-radius: 8%;
+            margin-bottom: 2em;
+        }
+
+        .txt{
+            /* border: solid red 1px; */
+            box-sizing: border-box;
+            width: 375px;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .txt h3{
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 150%;
+            margin-bottom: 1em;
+        }
+        .txt p{
+            margin-top: 2rem;
+            line-height: 200%;
+            letter-spacing: 1px;
+            margin-bottom: 0.7rem;
+            font-size: 0.8125rem;
+        }
+        .card-list .card:nth-child(2) .txt p{
+            margin-top: 0rem;
+        }
+
+        .txt a{
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+            color: #f65936;
+        }
+        .card-p2{
+            display: none;
+        }
+        /* ------------------------------------------------------------------------------- */
+        .mid-topic{
+            width: 375px;
+            /* border: 1px red solid; */
+            box-sizing: border-box;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 3rem auto;
+            font-weight: 500;
+            font-size: 35px;
+            line-height: 110%;
+            letter-spacing: -0.1em;
+        }
+        .mid-topic span{
+            color: #f65936;
+        }
+        /* ------------------------------------------------------------------------------- */
+        .mid-about{
+            font-weight: 500;
+            font-size: 11px;
+            line-height: 11px;
+            text-align: center;
+            letter-spacing: 0.03em;
+            margin-bottom: 1em;
+        }
+        /* ------------------------------------------------------------------------------- */
+        .mid-slider{
+            width: 375px;
+            /* border: blue 1px solid; */
+            height: 412px;
+            margin-top: 2rem;
+            margin-left: auto;
+            margin-right: auto;
+            display: grid;
+            grid-template:repeat(1,auto)/repeat(3,1fr);
+            box-sizing: border-box;
+        }
+        .mid-slider img{
+            width: 100%;
+            
+        }
+        /* ------------------------------------------------------------------------------- */
+        .mid-section{
+            /* border: red 1px solid; */
+            padding: 3rem 0 3rem 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .mid-section h4{
+            border-top: 2px solid #202124;
+            font-weight: 500;
+            font-size: 21px;
+            line-height: 24px;
+            padding-top: 10px;
+            width: 100%;
+            margin-bottom: 1em;
+        }
+
+        .mid-container{
+            box-sizing: border-box;
+            width: 375px;
+            height: auto;
+            padding-top: 10px;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        /* ------------------------------------------------------------------------------- */
+        .mid-card-title{
+            /* border:1px solid red; */
+            margin: 3rem 0 1.5rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .mid-card-title span{
+            /* border:1px solid green; */
+            display: block;
+        }
+        .ja{
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 26px;
+            letter-spacing: -0.02em;
+        }
+        .en{
+            font-weight: 500;
+            font-size: 11px;
+            line-height: 14px;
+            letter-spacing: 0.04em;
+            color: #6c6d6e;
+            margin-top: 7px;
+            font-family:sans-serif;
+        }
+        .mid-card-title a{
+            /* border:1px solid blue; */
+            display: block;
+            text-decoration: none;
+            color: #f65936;
+            font-size: 13px;
+            line-height: 13px;
+            font-weight: bold;
+        }
+        /* ------------------------------------------------------------------------------- */
+        .mid-card-list{
+            width: 375px;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            /* border:2px solid yellow; */
+            box-sizing: border-box;
+            display: grid;
+            grid-template:repeat(4,auto)/repeat(2,1fr);
+            gap:1rem;
+        }
+        
+        .mid-card{
+            display: flex;
+            flex-direction: column;
+        }
+        .mid-card-active{
+            grid-area:1/1/span 2/span 2;
+            margin-left: -1rem; 
+            margin-right: -1rem;
+        }
+
+        .mid-span{
+            /* border: blue 1px solid; */
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 12px;
+            color: #202124;
+            display: flex;
+            align-items: center;
+            flex-flow: wrap;
+            margin-bottom: 8px;
+            white-space: nowrap;
+        }
+        .mid-card:nth-last-child(1) .mid-span {
+            visibility: hidden;
+        }   
+        .mid-span img{
+            /* border: red 1px solid; */
+            display:block;
+        }
+        .mid-pic img{
+            width: 100%;
+            vertical-align: top;
+            border-radius: 6px;
+        }
+
+        .mid-txt{
+            /* border: green 1px solid; */
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .mid-txt h5{
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 150%;
+            margin: 0 0 12px 0;
+        }
+
+        .mid-txt p{
+            /* margin: 0 0 12px 0;
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 150%;
+            letter-spacing: 1px; */
+            display: block;
+        }
+        .mid-txt time{
+            /* border: red 1px solid; */
+            font-size: 12px;
+            line-height: 12px;
+            font-family:  sans-serif;
+            margin-top: auto;
+        }
+
+        .mid-card-active .mid-txt h5{
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 150%;
+            margin-bottom: 0.5em;
+        }
+        .mid-card-active .mid-txt p{
+            margin: 0 0 12px 0;
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 150%;
+            letter-spacing: 1px;
+        }
+        .mid-card-active .mid-txt{
+            padding: 0 1rem 0 1rem;
+        }
+        .mid-card-active .mid-txt time{
+            font-size: 12px;
+            line-height: 12px;
+            font-family:sans-serif;
+        }
+        .header-list{
+            display: none;
+        }
+        /* 768--------------------------------------------------------------------------- */
+
+        @media screen and (min-width:768px) {
+            * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            /* border: 2px solid red; */
+            /* border-bottom: 1px gray solid; */
+            display: flex;
+            width: 768px;
+            height: 80px;
+            align-items: center;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+
+        .header img {
+            /* border: 2px solid red; */
+            vertical-align: top;
+        }
+
+        .header-topic img {
+            width: 100%;
+        }
+
+        .header-icon {
+            /* border: solid purple; */
+            flex-grow: 1;
+            display: flex;
+            justify-content: flex-start;
+            align-content: center;
+            padding: 0 20px 0 35px;
+        }
+
+        .header-topic {
+            /* border: solid blue; */
+            flex-grow: 1;
+        }
+
+        .header-about {
+            /* border: solid green; */
+            width: auto;
+            font-size: 10px;
+            color: rgb(246, 92, 93);
+            flex-grow: 1;
+            align-content: center;
+            text-align: right;
+            padding-right: 1rem;
+            font-weight: 700;
+            display: none;
+        }
+        .logo{
+            display: flex;
+            flex-grow: 1;
+            justify-content: flex-end;
+            padding-right: 1rem;
+        }
+        .logo img{
+            /* border: 1px solid red; */
+            max-width: 120px;
+        }
+        /* ---------------------------------------------- */
+        .header-list{
+            /* border: 1px solid red; */
+            border-bottom: 1px gray solid;
+            box-sizing: border-box;
+            width: 768px;
+            height: 60.8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 1rem;
+            margin: 0 auto;
+        }
+        .header-list a{
+            text-decoration: none;
+        }
+        .header-a1{
+            /* border: 1px solid pink; */
+            font-size: 14px;
+            line-height: 14px;
+            color: #f65936;
+            font-weight: bold;
+        }
+        .header-list ul{
+            /* border: 1px solid blue; */
+            display: flex;
+            list-style: none;
+        }
+        .header-list ul li{
+            /* border: 1px solid gray; */
+            padding: 0 8px;
+            line-height: 1.8;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .header-a2{
+            /* border: 1px solid yellow; */
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 14px;
+            color: #6c6d6e;
+            display: flex;
+            align-items: center;
+        }
+        /* ---------------------------------------------- */
+        .main-topic {
+            /* border: solid red 1px; */
+            margin:0 auto;
+            width: 768px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column-reverse;
+            position: relative;
+            z-index: 2;
+            padding: 0 3rem 0 3rem;
+            top:4rem;
+        }
+
+        .main-topic h2 {
+            /* border: solid blue 1px; */
+            /* font-size: 72px; */
+            /* line-height: 85%; */
+            font-weight: 500;
+            letter-spacing: -0.04em;
+            /* margin-bottom: 1rem; */
+            margin-bottom: 0;
+            font-size: 120px;
+            line-height: 110px;
+        }
+
+        .main-topic h1 {
+            /* border: solid green 1px; */
+            /* font-size: 16px; */
+            font-weight: bold;
+            /* line-height: 150%; */
+            font-size: 24px;
+            line-height: 150%;
+            margin-bottom: 0;
+            max-width: 650px;
+        }
+        /* ---------------------------------------------- */
+
+        .card-list{
+            width: 768px;
+            margin: 0 auto;
+            z-index: 1;
+        }
+
+        .card{
+            /* border: solid blue 1px; */
+            margin-bottom: 42px;
+        }
+        .pic{
+            margin-top: 2rem;
+        }
+        .pic img{
+            width: 100%;
+            vertical-align: top;
+        }
+        .card-list .card:nth-child(2) .pic img{
+            box-sizing: border-box;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            border-radius: 8%;
+            margin-bottom: 2em;
+        }
+
+        .txt{
+            /* border: solid red 1px; */
+            box-sizing: border-box;
+            width: 768px;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .txt h3{
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 150%;
+            margin-bottom: 1em;
+        }
+        .txt p{
+            margin-top: 2rem;
+            line-height: 200%;
+            letter-spacing: 1px;
+            margin-bottom: 0.7rem;
+            /* font-size: 0.8125rem; */
+            font-size: 1rem;
+        }
+        .card-list .card:nth-child(2) .txt p{
+            margin-top: 0rem;
+        }
+
+        .txt a{
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+            color: #f65936;
+        }
+        .card-p1{
+            display: none;
+        }
+        .card-p2{
+            display: block;
+        }
+        /* ---------------------------------------------- */
+        .mid-topic{
+            width: 768px;
+            /* border: 1px red solid; */
+            box-sizing: border-box;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            /* margin: 3rem auto; */
+            font-weight: 500;
+            /* font-size: 35px; */
+            /* line-height: 110%; */
+            letter-spacing: -0.1em;
+            font-size: 82px;
+            line-height: 82px;
+            margin: 6rem auto;
+        }
+        .mid-topic span{
+            color: #f65936;
+        }
+        /* ---------------------------------------------- */
+        .mid-about{
+            margin-bottom: 1em;
+            font-weight: 500;
+            font-size: 11px;
+            line-height: 11px;
+            text-align: center;
+            letter-spacing: 0.03em;
+        }
+        /* ---------------------------------------------- */
+        .mid-slider{
+            width: 768px;
+            /* border: blue 1px solid; */
+            height: 412px;
+            margin-top: 2rem;
+            margin-left: auto;
+            margin-right: auto;
+            display: grid;
+            grid-template:repeat(1,auto)/repeat(3,1fr);
+            box-sizing: border-box;
+        }
+        .mid-slider img{
+            width: 100%;
+            
+        }
+        /* ---------------------------------------------- */
+        .mid-section{
+            /* border: red 1px solid; */
+            padding: 3rem 0 3rem 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .mid-section h4{
+            border-top: 2px solid #202124;
+            /* border: 2px solid #202124; */
+            border-bottom: 1px gray solid;
+            font-weight: 500;
+            font-size: 21px;
+            line-height: 24px;
+            padding-top: 10px;
+            padding-bottom: 60px;
+            width: 100%;
+            
+        }
+
+        .mid-container{
+            box-sizing: border-box;
+            width: 768px;
+            height: auto;
+            padding-top: 10px;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        /* ---------------------------------------------- */
+        .mid-card-title{
+            /* border:1px solid red; */
+            margin: 3rem 0 1.5rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .mid-card-title h3{
+            display: flex;
+        }
+        .mid-card-title span{
+            /* border:1px solid green; */
+            display: block;
+        }
+        
+        .ja{
+            display: inline-block;
+            font-weight: bold;
+            /* font-size: 18px; */
+            line-height: 26px;
+            letter-spacing: -0.02em;
+            font-size: 26px;
+        }
+        .en{
+            display: inline-block;
+            font-weight: 500;
+            /* font-size: 11px; */
+            line-height: 14px;
+            letter-spacing: 0.04em;
+            color: #6c6d6e;
+            font-family:sans-serif;
+            margin-left: 1rem;
+            font-size: 14px;
+            align-content: flex-end;
+        }
+        .mid-card-title a{
+            /* border:1px solid blue; */
+            display: block;
+            text-decoration: none;
+            color: #f65936;
+            font-size: 13px;
+            line-height: 13px;
+            font-weight: bold;
+        }
+        /* ---------------------------------------------- */
+        .mid-card-list{
+            width: 768px;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            /* border:2px solid yellow; */
+            box-sizing: border-box;
+            display: grid;
+            grid-template:repeat(2,auto)/repeat(4,1fr);
+            gap:1rem;
+            margin: 0 auto;
+        }
+        
+        .mid-card{
+            display: flex;
+            flex-direction: column;
+        }
+        .mid-card-active{
+            grid-area:1/1/span 2/span 2;
+            margin: 0 1rem 0 0;
+        }
+
+        .mid-span{
+            /* border: blue 1px solid; */
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 12px;
+            color: #202124;
+            display: flex;
+            align-items: center;
+            flex-flow: wrap;
+            margin-bottom: 8px;
+            white-space: nowrap;
+        }
+        .mid-card:nth-last-child(1) .mid-span {
+            visibility: hidden;
+        }   
+        .mid-span img{
+            /* border: red 1px solid; */
+            display:block;
+        }
+        .mid-pic img{
+            width: 100%;
+            vertical-align: top;
+            border-radius: 6px;
+        }
+
+        .mid-txt{
+            /* border: green 1px solid; */
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .mid-txt h5{
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 150%;
+            margin: 0 0 12px 0;
+        }
+
+        .mid-txt p{
+            /* margin: 0 0 12px 0;
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 150%;
+            letter-spacing: 1px; */
+            display: block;
+        }
+        .mid-txt time{
+            /* border: red 1px solid; */
+            font-size: 12px;
+            line-height: 12px;
+            font-family:  sans-serif;
+            margin-top: auto;
+        }
+        .mid-card-active .mid-txt{
+            display: grid;
+            grid-template:repeat(2,auto)/repeat(2,1fr) ;
+            padding-left:0;
+            padding-right: 0;
+            /* flex-direction: row; */
+        }
+        .mid-card-active .mid-txt h5{
+            font-weight: bold;
+            line-height: 150%;
+            margin-bottom: 0.5em;
+            grid-area:1/1/span 2 /span 1;
+            margin-right: 30px;
+            font-size: 24px;
+            letter-spacing: 1px;
+            text-indent: -10px;
+        }
+        .mid-card-active .mid-txt p{
+            
+            
+            margin: 0 0 12px 0;
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 150%;
+            letter-spacing: 1px;
+            /* grid-area: 1/2/span 2 /span 1; */
+            
+        }
+        
+        .mid-card-active .mid-txt time{
+            
+            
+            font-size: 12px;
+            line-height: 12px;
+            font-family:sans-serif;
+            /* grid-area: 1/2/span 2 /span 1; */
+            /* margin-bottom: 150px; */
+        }
+
+
+
+
+
+
+        }
+        /* 768--------------------------------------------------------------------------- */
+        @media screen and (min-width:1024px) {}
+
+        @media screen and (min-width:1200px) {}
+
+        @media screen and (min-width:1400px) {
+            
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <div class="header-icon"><img src="/Homework/hw4-Hawaii/search.svg" alt=""></div>
+            <div class="header-topic"><img src="/Homework/hw4-Hawaii/logo.svg" alt=""></div>
+            <div class="header-about">マラマハワイとは</div>
+            <div class="logo"><img src="/Homework/hw4-Hawaii/hawaiianIsland (1).png" alt=""></div>
+        </div>
+        <nav class="header-list">
+            <a class="header-a1" href="#">マラマハワイとは</a>
+            <ul>
+                <li>旅行者にできること</li>
+                <li>取組み紹介</li>
+                <li>関連映像</li>
+                <li>コミュニティ</li>
+                <li>特集</li>
+            </ul>
+            <a class="header-a2" href="#">業界関係の方へ<img src="/Homework/hw4-Hawaii/link_icon.svg" alt=""></a>
+        </nav>
+    </header>
+    <!-- -------------------------------------------------------------------------------------------- -->
+
+    <div class="main-topic">
+        <h2>Re-Imagine<br>
+            Hawai‘i</h2>
+        <h1>ハワイを想うことは、<br>
+            ハワイの未来を創ること。</h1>
+    </div>
+
+    <div class="card-list">
+
+        <div class="card">
+            <div class="pic">
+                <img src="/Homework/hw4-Hawaii/main.jpg" alt="">
+            </div>
+            <div class="txt">
+                <h2></h2>
+                <p class="card-p1">美しい楽園ハワイは、<br>
+                    永遠ではありません。<br>
+                    山から海まで、<br>
+                    ハワイに生きる美しい自然や文化に<br>
+                    「マラマ = 思いやりの心」を持って接すること。<br>
+                    レスポンシブル・ツーリズムは、<br>
+                    そんな思いやりの心を<br>
+                    旅の中で実践していく、<br>
+                    新しい観光のカタチです。<br>
+                    ハワイが何十年後も、何百年後も、<br>
+                    素晴らしい楽園であるよう<br>
+                    旅行者のみなさんだから<br>
+                    できることがあります。</p>
+                    <p class="card-p2">
+                        美しい楽園ハワイは、永遠ではありません。<br>
+                        山から海まで、ハワイに生きる美しい自然や文化に<br>
+                        「マラマ = 思いやりの心」を持って接すること。<br>
+                        レスポンシブル・ツーリズムは、そんな思いやりの心を<br>
+                        旅の中で実践していく、新しい観光のカタチです。<br>
+                        ハワイが何十年後も、何百年後も、素晴らしい楽園であるよう<br>
+                        旅行者のみなさんだからできることがあります。
+                    </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="pic">
+                <img src="/Homework/hw4-Hawaii/main_turtle.jpg" alt="">
+            </div>
+            <div class="txt">
+                <h3>美しいハワイを
+                    未来へとつなぐために
+                    わたしたちができること</h3>
+                <p>ハワイは世界の絶滅危惧種の宝庫と呼ばれるほど、貴重な生物がたくさん生息しています。ウミガメ、イルカ、クジラ、サンゴ礁。これらを守るためにも、知ってもらいたいことやルールがあります。これからは旅行者にも、ハワイの島々の自然や文化を守り、現地住民が大切にする場所を敬い、美しいハワイを未来へつなげていく行動が求められます。
+                    「レスポンシブル・ツーリズム」一緒にはじめませんか。</p>
+                <a href="#">マラマハワイとは ⮕</a>
+            </div>         
+        </div>
+    </div>
+    <!-- -------------------------------------------------------------------------------------------- -->
+    <div class="mid-topic">
+        <h3>
+            What We Can Do to<br>
+            <span>Keep Hawai‘i Beautiful</span><br>
+            for the Future.
+        </h3>
+    </div>
+    <!-- -------------------------------------------------------------------------------------------- -->
+    <h4 class="mid-about">ABOUT MĀLAMA HAWAI‘I</h4>
+    <!-- -------------------------------------------------------------------------------------------- -->
+    <div class="mid-slider">
+        <div><img src="/Homework/hw4-Hawaii/about_bg01.jpg" alt=""></div>
+        <div><img src="/Homework/hw4-Hawaii/about_bg02.jpg" alt=""></div>
+        <div><img src="/Homework/hw4-Hawaii/about_bg03.jpg" alt=""></div>
+    </div>
+    <!-- -------------------------------------------------------------------------------------------- -->
+    <section class="mid-section">
+
+        <div class="mid-container">
+
+            <h4>LATEST</h4>
+    <!-- -------------------------------------------------------------------------------------------- -->     
+            <div class="mid-card-title">
+                <h3>
+                    <span class="ja">旅行者にできること</span>
+                    <span class="en">What Travelers Can Do</span>
+                </h3>
+                <a href="#">すべて見る⮕</a>
+            </div>
+        </div>
+    <!-- -------------------------------------------------------------------------------------------- -->                 
+            <div class="mid-card-list">
+
+                <div class="mid-card-active">
+                    <span class="mid-span"><img src="/Homework/hw4-Hawaii/icon_event.svg" alt="">イベント</span>
+                    <div class="mid-pic">
+                        <img src="/Homework/hw4-Hawaii/Allhawaiiコラム用-3.png" alt="">
+                    </div>
+
+                    <div class="mid-txt">
+                        <h5>【4月22日はアースデイ】ハワイでの環境にやさしいイベントを紹介！</h5>
+                        <p>毎年4月22日はアースデイ(Earth Day)！地球や環境のことを考え、一人一人が何ができるかを考えたり行動を起こすために生まれた1日。1970年にユネスコに</p>
+                        <time datetime="2024.03.21">2024.03.21</time>
+                    </div>
+                </div>
+
+                <div class="mid-card">
+                    <span class="mid-span"><img src="/Homework/hw4-Hawaii/icon_event.svg" alt="">イベント</span>
+                    <div class="mid-pic">
+                        <img src="/Homework/hw4-Hawaii/Prince-Kuhio.jpg" alt="">
+                    </div>
+
+                    <div class="mid-txt">
+                        <h5>プリンス・クヒオ・デイ・セレブレーション（Prince Kuhio Day Celebration）</h5>
+                        <p></p>
+                        <time datetime="2024.03.21">2024.03.21</time>
+                    </div>
+                </div>
+                
+                <div class="mid-card">
+                    <span class="mid-span"><img src="/Homework/hw4-Hawaii/icon_ocean.svg" alt="">イベント</span>
+                    <div class="mid-pic">
+                        <img src="/Homework/hw4-Hawaii/230820_Puerto-Morelos-Limones_LJM07316-scaled.jpg" alt="">
+                    </div>
+
+                    <div class="mid-txt">
+                        <h5>11月はサンゴ白化啓発月間　〜日常でできること〜</h5>
+                        <p></p>
+                        <time datetime="2023.11.09">2023.11.09</time>
+                    </div>
+                </div>
+
+                <div class="mid-card">
+                    <span class="mid-span"><img src="/Homework/hw4-Hawaii/icon_other.svg" alt="">イベント</span>
+                    <div class="mid-pic">
+                        <img src="/Homework/hw4-Hawaii/米国ハワイ州マウイ郡マウイ島の山火事救援金-640-×-427-px-1.png" alt="">
+                    </div>
+
+                    <div class="mid-txt">
+                        <h5>マウイ島の山火事救援金、日本円で受付開始</h5>
+                        <p></p>
+                        <time datetime="2023.08.18">2023.08.18</time>
+                    </div>
+                </div>
+
+                <div class="mid-card">
+                    <span class="mid-span"><img src="/Homework/hw4-Hawaii/icon_other.svg" alt="">イベント</span>
+                    <div class="mid-pic">
+                        <img src="/Homework/hw4-Hawaii/image.png" alt="">
+                    </div>
+
+                    <div class="mid-txt">
+                        <h5>2023年7月後半～9月にハワイで開催されるカルチャーイベント</h5>
+                        <p></p>
+                        <time datetime="2023.07.20">2023.07.20</time>
+                    </div>
+                </div>
+
+                
+                
+                
+                
+            </div>
+
+
+
+        
+        
+
+    </section>
+
+</body>
+
+</html>
