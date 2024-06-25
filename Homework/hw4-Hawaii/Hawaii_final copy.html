@@ -191,6 +191,7 @@
             box-sizing: border-box;
             gap: 1rem;
             padding-left: 1rem;
+            position: relative;
         }
 
         .mid-slider img {
@@ -203,35 +204,7 @@
             position: relative;
             /* overflow:scroll; */
         }
-        .mid-slider-card:hover .mid-slider-below p {
-            visibility: visible;
-            opacity: 1;
-        }
-        /* .mid-slider-card:hover .mid-slider-below {
-            background-color: rgba(0, 0, 0, 0.7);
-        } */
-        .mid-slider-overlay {
-        border:1px solid blue;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 280px;
-        height: 380px;
-        border-radius: 10px;
-        background-color: rgba(0, 0, 0, 0);
-        transition: background-color 0.3s ease;
-        z-index: 2; /* 确保覆盖层位于最上层 */
-        }
-
-        /* 鼠标悬停时显示内容并变暗背景 */
-        .mid-slider-card:hover .mid-slider-overlay {
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-
-        .mid-slider-card:hover .mid-slider-below p {
-            visibility: visible;
-            opacity: 1;
-        }
+        
         
         .mid-slider-topic{
             border:1px solid red;
@@ -248,6 +221,8 @@
             margin-bottom: 5px;
             width: 280px;
             height: 60px;
+            visibility: hidden;
+            /* display: none; */
         }
         .mid-slider-a{
             border:1px solid #fff;;
@@ -287,8 +262,9 @@
             box-sizing: border-box;
             width: fit-content;
             padding: 0 15px;
+            display: none;
         }
-        .mid-slider-below p{
+        /* .mid-slider-below p{
             color: #fff;
             font-weight: 500;
             font-size: 14px;
@@ -298,7 +274,7 @@
             opacity: 0;
             transition: visibility 0s, opacity 0.3s linear;
             z-index: 1;
-        }
+        } */
         .mid-slider-below span{
             color: #fff;
             font-family:sans-serif;
@@ -308,6 +284,119 @@
             letter-spacing: 0.03em;
             color: rgba(255, 255, 255, 0.7);
 
+        }
+    
+        /* .mid-slider-card:hover .mid-slider-below {
+            background-color: rgba(0, 0, 0, 0.7);
+        } */
+        
+        .mid-slider-overlay {
+        border:1px solid blue;
+        background-color: black;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 280px;
+        height: 380px;
+        /* border-radius: 10px; */
+        background-color: rgba(0, 0, 0, 0);
+        transition: background-color 0.3s ease;
+        margin-left: 1rem;
+        z-index: 1; /* 确保覆盖层位于最上层 */
+        }
+        /* .mid-slider-overlay img{
+            visibility: hidden;
+            display: none;
+        } */
+
+        .mid-slider-overlay-topic{
+            border:1px solid blue;
+            color: #fff;
+            position: relative;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 150%;
+            letter-spacing: -0.02em;
+            /* bottom: 360px; */
+            top: 23px;
+            box-sizing: border-box;
+            padding:0 15px;
+            display: block;
+            margin-bottom: 5px;
+            width: 280px;
+            height: 60px;
+            z-index: 3;
+        }
+
+        .mid-slider-overlay-a{
+            border:1px solid blue;;
+            /* background-color: #fff; */
+            background: #fff;
+            display: flex;
+            width: 119px;
+            height: 40px;
+            position: relative;
+            top: 23px;
+            left: 15px;
+            align-items: center;
+            justify-content:center;
+            border-radius: 100px;
+            visibility: hidden;
+        }
+
+        .mid-slider-overlay-a span{
+            border:1px solid green;
+            
+            display:inline-block;
+        }
+        .mid-slider-overlay-a a{
+            border:1px solid yellow;
+            text-decoration: none;
+            color: #202124;
+            font-weight: bold;
+            font-size: 12px;
+            line-height: 12px;
+            
+        }
+        .mid-slider-overlay-below{
+            border:1px solid blue;
+            width: 280px;
+            position: absolute;
+            top:190px;
+            box-sizing: border-box;
+            width: fit-content;
+            padding: 0 15px;
+        }
+        .mid-slider-overlay-below p{
+            color: #fff;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 175%;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.3s linear;
+            z-index: 3;
+        }
+        .mid-slider-overlay-below span{
+            color: #fff;
+            font-family:sans-serif;
+            font-weight: 500;
+            font-size: 11px;
+            line-height: 11px;
+            letter-spacing: 0.03em;
+            color: rgba(255, 255, 255, 0.7);
+            
+
+        }
+        /* 鼠标悬停时显示内容并变暗背景 */
+        .mid-slider-card:hover .mid-slider-overlay {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .mid-slider-card:hover .mid-slider-below p {
+            visibility: visible;
+            opacity: 1;
         }
         /* ------------------------------------------------------------------------------- */
         .mid-section {
@@ -1094,14 +1183,23 @@
     <h4 class="mid-about">ABOUT MĀLAMA HAWAI‘I</h4>
     <!-- -------------------------------------------------------------------------------------------- -->
     <div class="mid-slider">
-        <div class="mid-slider-card">
-            <div class="mid-slider-overlay">
-                
-                <div class="mid-slider-below">
-                    <p>観光客もツーリズムを構成する要素であると捉え、観光客が意識や行動に責任を持つことで、より良い観光地形成を行っていこうという考え方です。</p>
-                    <span>WHAT IS “RESPONSIBLE TOURISM”</span>
-                </div>
+
+        <div class="mid-slider-overlay">
+            <span class="mid-slider-overlay-topic">責任ある旅行“レスポンシブル・ツーリズム”について
+            </span>
+            <div class="mid-slider-overlay-a">
+                <span>
+                    <a href="#">詳しく見る ⮕</a>
+                </span>
             </div>
+            <div class="mid-slider-overlay-below">
+                <p>観光客もツーリズムを構成する要素であると捉え、観光客が意識や行動に責任を持つことで、より良い観光地形成を行っていこうという考え方です。</p>
+                <span>WHAT IS “RESPONSIBLE TOURISM”</span>
+            </div>
+        </div>
+
+
+        <div class="mid-slider-card">
             <img src="/Homework/hw4-Hawaii/about_bg01.jpg" alt="">
             <span class="mid-slider-topic">責任ある旅行“レスポンシブル・ツーリズム”について
             </span>
@@ -1118,6 +1216,11 @@
             </div>
         </div>
 
+
+
+
+
+        
         <div class="mid-slider-card">
             <img src="/Homework/hw4-Hawaii/about_bg02.jpg" alt="">
         </div>
