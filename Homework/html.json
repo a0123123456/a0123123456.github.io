@@ -1,0 +1,130 @@
+{
+	"container_row": {
+	"prefix": "cr",
+	"body": [
+    "    <div class=\"container\">",
+    "        <div class=\"row\">",
+    "    ",
+    "    ",
+    "    ",
+    "        </div>",
+    "    </div>"
+	],
+	"description": "container_row"
+	},
+
+	"2欄66": {
+	"prefix": "c66",
+	"body": [
+    "<div class=\"col-12 col-md-6\">${1:example}</div>",
+    "<div class=\"col-12 col-md-6\">${1:example}</div>",
+    ""
+	],
+	"description": "2欄66"
+	},
+
+	"3欄44": {
+	"prefix": "c444",
+	"body": [
+    "<div class=\"col-12 col-md-4\">${1:example}</div>",
+    "<div class=\"col-12 col-md-4\">${1:example}</div>",
+	"<div class=\"col-12 col-md-4\">${1:example}</div>",
+    ""
+	],
+	"description": "3欄444"
+	},
+
+	"4欄3333": {
+	"prefix": "c3333",
+	"body": [
+    "<div class=\"col-12 col-md-3\">${1:example}</div>",
+    "<div class=\"col-12 col-md-3\">${1:example}</div>",
+	"<div class=\"col-12 col-md-3\">${1:example}</div>",
+	"<div class=\"col-12 col-md-3\">${1:example}</div>",
+    ""
+	],
+	"description": "4欄3333"
+	},
+
+	"6欄222222": {
+	"prefix": "c222222",
+	"body": [
+    "<div class=\"col-12 col-md-2\">${1:example}</div>",
+    "<div class=\"col-12 col-md-2\">${1:example}</div>",
+	"<div class=\"col-12 col-md-2\">${1:example}</div>",
+	"<div class=\"col-12 col-md-2\">${1:example}</div>",
+	"<div class=\"col-12 col-md-2\">${1:example}</div>",
+	"<div class=\"col-12 col-md-2\">${1:example}</div>",
+    ""
+	],
+	"description": "6欄222222"
+	},
+
+	"所有欄": {
+	"prefix": "crall",
+	"body": [
+		"                <div class=\"container\">",
+		"                    <div class=\"row\">",
+		"",
+		"                        <div class=\"col-12 col-md-6\">example</div>",
+		"                        <div class=\"col-12 col-md-6\">example</div>",
+		"            ",
+		"                        <div class=\"col-12 col-md-4\">example</div>",
+		"                        <div class=\"col-12 col-md-4\">example</div>",
+		"                        <div class=\"col-12 col-md-4\">example</div>",
+		"            ",
+		"                        <div class=\"col-12 col-md-3\">example</div>",
+		"                        <div class=\"col-12 col-md-3\">example</div>",
+		"                        <div class=\"col-12 col-md-3\">example</div>",
+		"                        <div class=\"col-12 col-md-3\">example</div>",
+		"            ",
+		"                        <div class=\"col-12 col-md-2\">example</div>",
+		"                        <div class=\"col-12 col-md-2\">example</div>",
+		"                        <div class=\"col-12 col-md-2\">example</div>",
+		"                        <div class=\"col-12 col-md-2\">example</div>",
+		"                        <div class=\"col-12 col-md-2\">example</div>",
+		"                        <div class=\"col-12 col-md-2\">example</div>",
+		"",
+		"                    </div>",
+		"                </div>"
+	],
+	"description": "所有欄"
+	},
+
+	"從ROW直接控制欄": {
+	"prefix": "crrall",
+	"body": [
+		"    <div class=\"container\">",
+		"        <div class=\"row row-cols-2 row-cols-md-4\">",
+		"            ",
+		"            <div class=\"col\">",
+		"                <div class=\"card\">",
+		"                    <img src=\"https://picsum.photos/350/200/?random=10\">",
+		"                </div>",
+		"            </div>",
+		"",
+		"            <div class=\"col\">",
+		"                <div class=\"card\">",
+		"                    <img src=\"https://picsum.photos/350/200/?random=10\">",
+		"                </div>",
+		"            </div>",
+		"",
+		"            <div class=\"col\">",
+		"                <div class=\"card\">",
+		"                    <img src=\"https://picsum.photos/350/200/?random=10\">",
+		"                </div>",
+		"            </div>",
+		"",
+		"            <div class=\"col\">",
+		"                <div class=\"card\">",
+		"                    <img src=\"https://picsum.photos/350/200/?random=10\">",
+		"                </div>",
+		"            </div>",
+		"",
+		"        </div>",
+		"    </div>"
+	],
+	"description": "從ROW直接控制欄"
+	}
+
+}	

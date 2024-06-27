@@ -1,0 +1,26 @@
+{
+
+
+	"卡片W100%並去除下面多餘部分": {
+	"prefix": "ci",
+	"body": [
+		".card img{",
+		"    width: 100%;",
+		"    vertical-align: top;",
+		"}"
+	],
+	"description": "卡片W100%並去除下面多餘部分"
+	},
+
+
+
+	"media": {
+	"prefix": "md",
+	"body": [
+		"@media screen and (min-width:768px) {",
+		"            ",
+		"}"
+	],
+	"description": "media"
+	}
+}
