@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.top {
+    background-color: rgb(247, 248, 249);
+    padding-left: 416px;
+    padding-right: 416px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+    text-align: center;
+}
+
+.bot {
+    background-color: rgb(247, 248, 249);
+    padding-left: 416px;
+    padding-right: 416px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+    height: 700px;
+    text-align: center;
+}
+
+.bot-icon {
+    max-width: 31%;
+    margin-top: 50px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.bot h2 {
+    color: rgb(41, 36, 75);
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 72px;
+}
+
+.bot-icon h3 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.bot-icon p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+}
+
+.bot-all-icon {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.top h2 {
+    margin-bottom: 24px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.top p {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.card-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 447px;
+}
+
+.card {
+    width: 1000px;
+    height: 450px;
+    display: flex;
+    margin-top: 80px;
+    gap: 50px;
+}
+
+.picture {
+    width: 50%;
+    height: 450px;
+}
+
+.text {
+
+    width: 50%;
+    height: 450px;
+}
+
+h3 {
+    margin-top: 25px;
+    margin-bottom: 28px;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 40px;
+}
+
+.text p {
+    margin-bottom: 25px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 27px;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+    list-style: disc inside;
+    line-height: 20px;
+}
+
+li {
+    margin: 3px;
+    flex: 33%;
+}
+
+li::marker {
+    color: blue;
+    font-size: 20px;
+}
+
+.text a {
+    color: blue;
+    text-decoration: underline;
+    text-underline-offset: 8px;
+    font-weight: 900;
+}
+
+.card-list .card:nth-child(2n) {
+    flex-direction: row-reverse;
+}
+
+#bot-card {
+    margin-bottom: 80px;
+}

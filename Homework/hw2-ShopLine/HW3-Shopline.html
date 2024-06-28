@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .top {
+            border: green solid 5px;
+            background-color: rgb(247, 248, 249);
+            padding-left: 416px;
+            padding-right: 416px;
+            padding-top: 64px;
+            padding-bottom: 64px;
+            text-align: center;
+
+        }
+
+        h2 {
+            margin-bottom: 24px;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .top p {
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        .card-section {
+            border: green solid 5px;
+            padding-left: 416px;
+            padding-right: 416px;
+            padding-top: 64px;
+            padding-bottom: 64px;
+        }
+
+        .card-list {
+            border: rgb(11, 11, 11) 4px solid;
+
+
+        }
+
+
+        .card {
+            border: red 3px solid;
+            width: 1000px;
+            height: 450px;
+            display: flex;
+            /* flex-wrap: wrap;
+            flex-direction: row; */
+        }
+        .card-list .card:nth-child(2n){
+            background-color: aquamarine;
+            /* flex-direction: row-reverse; */
+        }
+
+        .picture {
+            border: orange 2px solid;
+            width: 50%;
+            height: 450px;
+        }
+
+        .text {
+            border: orange 2px solid;
+            width: 50%;
+            height: 450px;
+        }
+
+        h3 {
+            border: green 2px solid;
+            margin-top: 25px;
+            margin-bottom: 28px;
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 40px;
+        }
+
+        .text p {
+            border: green 2px solid;
+            margin-bottom: 25px;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 27px;
+        }
+
+        ul {
+            border: green 2px solid;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+            list-style: disc inside;
+            line-height: 27px;
+        }
+
+        li {
+            border: green 2px solid;
+            margin: 3px;
+            flex: 33%;
+        }
+
+        li::marker {
+            color: blue;
+            font-size: 20px;
+        }
+
+        .text a {
+            border: green 2px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <section class="top">
+            <h2>單一平台就能助你<br>
+                在全通路輕鬆開店創業
+            </h2>
+            <p>
+                從網路商店架站到實體門市管理，只需要一個平台，就能輕鬆實現開店創業，並能同步管理所有銷售管道，SHOPLINE 助你賣得更多、賣得更好！
+            </p>
+        </section>
+        <div class="card-list">
+            <section class="card-section">
+                <div class="card">
+                    <div class="text">
+                        <h3>
+                            免寫程式、多款版型<br>
+                            輕鬆打造全能電商網站
+                        </h3>
+                        <p>
+                            不會寫程式也能輕鬆架設品牌電商官網！任何產業都能找到合適的專業設計版型，以滑鼠拖曳就能完成網頁編輯，讓架設網站就像堆積木一樣簡單。
+                        </p>
+                        <ul>
+                            <li>豐富版型主題與字型搭配</li>
+                            <li>SEO 搜尋引擎優化</li>
+                            <li>RWD 響應式網頁設計</li>
+                            <li>一頁商店</li>
+                            <li>獨有網址 ＆ SSL 安全憑證</li>
+                            <li>開放 HTML／CSS 編輯</li>
+                        </ul>
+                        <a href="">看看開店祕技 <img src="/arrow.png" alt=""></a>
+
+                    </div>
+                    <div class="picture">
+                        <img src="/500x.webp">
+                    </div>
+                </div>
+            </section>
+            <section class="card-section">
+                <div class="card">
+                    <div class="text">
+                        <h3>
+                            免寫程式、多款版型<br>
+                            輕鬆打造全能電商網站
+                        </h3>
+                        <p>
+                            不會寫程式也能輕鬆架設品牌電商官網！任何產業都能找到合適的專業設計版型，以滑鼠拖曳就能完成網頁編輯，讓架設網站就像堆積木一樣簡單。
+                        </p>
+                        <ul>
+                            <li>豐富版型主題與字型搭配</li>
+                            <li>SEO 搜尋引擎優化</li>
+                            <li>RWD 響應式網頁設計</li>
+                            <li>一頁商店</li>
+                            <li>獨有網址 ＆ SSL 安全憑證</li>
+                            <li>開放 HTML／CSS 編輯</li>
+                        </ul>
+                        <a href="">看看開店祕技 <img src="/arrow.png" alt=""></a>
+
+                    </div>
+                    <div class="picture">
+                        <img src="/500x.webp">
+                    </div>
+                </div>
+            </section>
+            <section class="card-section">
+                <div class="card">
+                    <div class="text">
+                        <h3>
+                            免寫程式、多款版型<br>
+                            輕鬆打造全能電商網站
+                        </h3>
+                        <p>
+                            不會寫程式也能輕鬆架設品牌電商官網！任何產業都能找到合適的專業設計版型，以滑鼠拖曳就能完成網頁編輯，讓架設網站就像堆積木一樣簡單。
+                        </p>
+                        <ul>
+                            <li>豐富版型主題與字型搭配</li>
+                            <li>SEO 搜尋引擎優化</li>
+                            <li>RWD 響應式網頁設計</li>
+                            <li>一頁商店</li>
+                            <li>獨有網址 ＆ SSL 安全憑證</li>
+                            <li>開放 HTML／CSS 編輯</li>
+                        </ul>
+                        <a href="">看看開店祕技 <img src="/arrow.png" alt=""></a>
+
+                    </div>
+                    <div class="picture">
+                        <img src="/500x.webp">
+                    </div>
+                </div>
+            </section>
+            <section class="card-section">
+                <div class="card">
+                    <div class="text">
+                        <h3>
+                            免寫程式、多款版型<br>
+                            輕鬆打造全能電商網站
+                        </h3>
+                        <p>
+                            不會寫程式也能輕鬆架設品牌電商官網！任何產業都能找到合適的專業設計版型，以滑鼠拖曳就能完成網頁編輯，讓架設網站就像堆積木一樣簡單。
+                        </p>
+                        <ul>
+                            <li>豐富版型主題與字型搭配</li>
+                            <li>SEO 搜尋引擎優化</li>
+                            <li>RWD 響應式網頁設計</li>
+                            <li>一頁商店</li>
+                            <li>獨有網址 ＆ SSL 安全憑證</li>
+                            <li>開放 HTML／CSS 編輯</li>
+                        </ul>
+                        <a href="">看看開店祕技 <img src="/arrow.png" alt=""></a>
+
+                    </div>
+                    <div class="picture">
+                        <img src="/500x.webp">
+                    </div>
+                </div>
+            </section>
+            <section class="card-section">
+                <div class="card">
+                    <div class="text">
+                        <h3>
+                            免寫程式、多款版型<br>
+                            輕鬆打造全能電商網站
+                        </h3>
+                        <p>
+                            不會寫程式也能輕鬆架設品牌電商官網！任何產業都能找到合適的專業設計版型，以滑鼠拖曳就能完成網頁編輯，讓架設網站就像堆積木一樣簡單。
+                        </p>
+                        <ul>
+                            <li>豐富版型主題與字型搭配</li>
+                            <li>SEO 搜尋引擎優化</li>
+                            <li>RWD 響應式網頁設計</li>
+                            <li>一頁商店</li>
+                            <li>獨有網址 ＆ SSL 安全憑證</li>
+                            <li>開放 HTML／CSS 編輯</li>
+                        </ul>
+                        <a href="">看看開店祕技 <img src="/arrow.png" alt=""></a>
+
+                    </div>
+                    <div class="picture">
+                        <img src="/500x.webp">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>

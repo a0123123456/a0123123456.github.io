@@ -1,0 +1,221 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body * {
+    line-height: calc(5px + 2ex + 5px);
+}
+
+.card .pic img {
+    width: 100%;
+    vertical-align: top;
+}
+
+@media screen and (min-width:768px) {
+    .row-card .card {
+        display: flex;
+        align-items: center;
+        
+    }
+    .row-footer{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .row-card .card:nth-child(2n+1) {
+        flex-direction: row-reverse;
+    }
+    .row-card .card .pic {
+        padding-left: 20px;
+    
+    }
+    .row-card .card .pic img{
+        width: 75%;
+        
+    }
+    .row-card .card .txt ul{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        
+    }
+    .row-card .card .txt ul li {
+        flex: 1 1 45%;
+        margin: 10px 0;
+        box-sizing: border-box;
+    }
+}
+
+.container {
+    margin: auto;
+}
+
+.row-head .topic {
+    text-align: center;
+    padding-top: 45px;
+    padding-bottom: 45px;
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: #F7F8F9;
+}
+
+.topic h2 {
+    box-sizing: border-box;
+    font-size: 175%;
+    font-weight: bold;
+    margin-bottom: 24px;
+    line-height: calc(5px + 2ex + 5px);
+    color: #052855;
+}
+
+.topic p {
+    line-height: calc(5px + 2ex + 5px);
+    box-sizing: border-box;
+    color: #052855;
+}
+
+/* --------------------------- */
+.row-card {
+    padding-top: 45px;
+    padding-bottom: 45px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.card .pic {
+    margin-bottom: 32px;
+}
+
+.card .txt h3 {
+    font-size: 150%;
+    margin-bottom: 24px;
+    text-align: left;
+    color: #052855;
+}
+
+.card .txt p {
+    font-size: 100%;
+    margin-bottom: 24px;
+    text-align: justify;
+    color: #052855;
+
+}
+
+.card .txt ul {
+    color: #052855;
+    margin-bottom: -8px;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+.card .txt ul li {
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 8px;
+    width: 100%;
+    font-weight: 500;
+    line-height: calc(5px + 2ex + 5px);
+}
+
+.card .txt ul li:before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #0061FF;
+    left: 0;
+    top: 11px;
+    position: absolute;
+}
+
+.card .txt a {
+    margin-top: 40px;
+    width: auto;
+    color: #0061FF;
+    border-bottom: 2px solid #0061FF;
+    display: inline-block;
+    background-color: transparent;
+    border-radius: 0;
+    height: auto;
+    font-weight: 500;
+    position: relative;
+    transition: .3s all;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+/* ---------------------------- */
+.container:nth-child(3) {
+    background-color: #F7F8F9;
+}
+
+.row-footer {
+    padding-top: 0;
+    padding-bottom: 45px;
+    padding-left: 16px;
+    padding-right: 16px;
+    
+}
+
+
+@media screen and (min-width:768px) {
+    .container:nth-child(3){
+        padding-top: 24px;
+        padding-bottom: 64px;
+        
+    }
+    .container:nth-child(3) .topic h3{
+        font-size: 150%;
+    }
+    .container:nth-child(3) .topic{
+        margin-bottom: 20px;
+    }
+}
+.container:nth-child(3) .topic{
+    width: 100%;
+    font-size: 120%;
+    font-weight: bold;
+    color: #052855;
+    text-align: center;
+    padding-top: 50px;
+}
+.row-footer .card .pic {
+    margin: 48px auto 0;
+    max-width: 400px;
+    text-align: center;
+}
+
+.row-footer .card .pic img {
+    margin: 0 auto 24px;
+    width: 96px;
+}
+
+.row-footer .card .txt h3 {
+    line-height: 1.5;
+    font-size: 125%;
+    margin-bottom: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.row-footer .card .txt p {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+/* .container {
+    border: 1px solid blue;
+}
+
+.pic {
+    border: 1px solid blue;
+}
+
+.txt {
+    border: 1px solid blue;
+}
+
+.col-12 {
+    border: 1px solid red;
+} */
