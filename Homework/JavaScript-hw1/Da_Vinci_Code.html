@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Homework/JavaScript-hw1/Da_Vinci_Code.css">
+    
+
+</head>
+<body>
+    <div class="container">
+        <div class="topic">
+            <h1>終極密碼</h1>
+        </div>
+
+        <div class="txt">
+            <h3>請輸入1~100之間的數字</ㄘ>
+        </div>
+        
+        <div class="operatezone">
+
+            <div class="inputbox">
+                <input type="text" id="guessInput">
+            </div>
+            
+            <div class="btn-guess">
+                <button id="guessButton">點我猜數字</button>
+            </div>
+
+            <div class="btn-restart">
+                <button id="restartButton">重新開始</button>
+            </div>
+
+            <div class="btn-answer">
+                <button id="answerButton">看答案</button>
+            </div>
+
+            <div class="output" id="output"></div>
+
+        </div>    
+    </div>
+
+    <script>
+        let secretNumber;
+        let min = 1;
+        let max = 100;
+
+        function initializeGame() {
+            secretNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+            min = 1;
+            max = 100;
+            document.getElementById('guessInput').value = '';
+            document.getElementById('output').innerHTML = '';
+            console.log(`答案是: ${secretNumber}`);
+        }
+
+        function makeGuess() {
+            const guess = parseInt(document.getElementById('guessInput').value);
+            if (isNaN(guess) || guess < min || guess > max) {
+                alert(`請輸入一個 ${min} 到 ${max} 之間的有效數字`);
+                return;
+            }
+
+
+            if (guess === secretNumber) {
+                document.getElementById('output').innerHTML = `恭喜你！猜對了，答案是 ${secretNumber}。`;
+            } else if (guess < secretNumber) {
+                min = guess + 1;
+                document.getElementById('output').innerHTML = `太小了！請輸入 ${min} 到 ${max} 之間的數字。`;
+            } else {
+                max = guess - 1;
+                document.getElementById('output').innerHTML = `太大了！請輸入 ${min} 到 ${max} 之間的數字。`;
+            }
+        }
+
+        function showAnswer() {
+            document.getElementById('output').innerHTML = `答案是 ${secretNumber}。`;
+        }
+
+        document.getElementById('guessButton').addEventListener('click', makeGuess);
+        document.getElementById('restartButton').addEventListener('click', initializeGame);
+        document.getElementById('answerButton').addEventListener('click', showAnswer);
+
+        initializeGame();
+    </script>
+</body>
+</html>
