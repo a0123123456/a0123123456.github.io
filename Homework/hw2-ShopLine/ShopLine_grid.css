@@ -26,12 +26,18 @@ body * {
         flex-direction: row-reverse;
     }
     .row-card .card .pic {
-        padding-left: 20px;
-    
+        
+        display: flex;
+        justify-content: center;
+        
     }
     .row-card .card .pic img{
         width: 75%;
         
+    }
+    .row-card .txt p{
+        box-sizing: border-box;
+        padding-right: 50px;
     }
     .row-card .card .txt ul{
         display: flex;
