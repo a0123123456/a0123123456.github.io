@@ -351,13 +351,25 @@ window.addEventListener('load', function (event) {
     loadTodoList();
 })
 //-------------------------------------------------------------------
-//點擊後會跳出編輯刪除視窗
+
 
 const editDeleteModal = new bootstrap.Modal(document.getElementById('editDeleteModal'));
 const editTodoBtn = document.getElementById('editTodoBtn');
 const deleteTodoBtn = document.getElementById('deleteTodoBtn');
 const modalPreserveBtn = document.querySelector("#modal-preserve-btn");
 let selectedTodoItem = null;
+
+//點擊後會跳出編輯刪除視窗
+document.addEventListener('click', function (event) {
+    if (event.target && event.target.matches(".todo-list li")) {
+        const todoItemId = event.target.dataset.id;
+        const todoList = getTodoListFromStorage();
+        selectedTodoItem = todoList.find(item => item.id === parseInt(todoItemId));
+        if (selectedTodoItem) {
+            editDeleteModal.show();
+        }
+    }
+});
 
 editTodoBtn.addEventListener('click', () => {
     if (selectedTodoItem) {
@@ -442,20 +454,10 @@ modalPreserveBtn.addEventListener('click', () => {
     loadTodoList();
 
     // 隱藏編輯視窗
-
     staticBackdrop.hide();
 })
 
-document.addEventListener('click', function (event) {
-    if (event.target && event.target.matches(".todo-list li")) {
-        const todoItemId = event.target.dataset.id;
-        const todoList = getTodoListFromStorage();
-        selectedTodoItem = todoList.find(item => item.id === parseInt(todoItemId));
-        if (selectedTodoItem) {
-            editDeleteModal.show();
-        }
-    }
-});
+
 
 
 
