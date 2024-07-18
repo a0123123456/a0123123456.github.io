@@ -43,7 +43,8 @@
         }
 
         .c-block {
-            height: 170px;
+            overflow: hidden;
+            height: 150px;
             text-align: end;
             padding: 5px 10px;
         }
@@ -87,12 +88,14 @@
         }
 
         .todo-list>.todo {
-            padding: 5px 5px 5px 13px;
+            padding: 5px 10px 5px 10px;
             text-align: start;
             border-radius: 10px;
             margin: 3px;
             font-size: 15px;
             cursor: pointer;
+            overflow: hidden;
+            white-space: nowrap;
         }
 
         .todo-list>.todo:hover {
@@ -123,6 +126,7 @@
             height: 30px;
             vertical-align: middle;
         }
+
     </style>
 </head>
 
@@ -171,7 +175,6 @@
                     </div>
                     <ul class="todo-list">
 
-
                     </ul>
 
                 </div>
@@ -183,7 +186,7 @@
                     </div>
                     <ul class="todo-list">
 
-   
+
                     </ul>
                 </div>
                 <div class="col block c-block">

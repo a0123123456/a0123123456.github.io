@@ -373,7 +373,7 @@ document.addEventListener('click', function (event) {
 
 editTodoBtn.addEventListener('click', () => {
     if (selectedTodoItem) {
-
+        document.getElementById('validationCustom04').value = selectedTodoItem.todo[0].period;
         document.getElementById('input-hour').value = selectedTodoItem.todo[0].time.split(':')[0];
         document.getElementById('input-minutes').value = selectedTodoItem.todo[0].time.split(':')[1];
         document.getElementById('todo-content').value = selectedTodoItem.todo[0].do;
