@@ -21,27 +21,31 @@ selectDayBtn.textContent = `${updateYear}年${updateMonth}月`;
 console.log(updateYear,updateMonth);
 
 pageLeftBtn.addEventListener("click", () => {
-    if (currentMonth > 1) {
-        currentMonth--;
+    if (updateMonth > 1) {
+        updateMonth--;
+        console.log(updateYear,updateMonth);
     } else {
-        currentYear--;
-        currentMonth = 12;
+        updateYear--;
+        updateMonth = 12;
         CreateDropDownMenu();
+        console.log(updateYear,updateMonth);
     }
-    console.log(updateYear,updateMonth);
-    updateAndRenderCalendar(currentYear, currentMonth);
+    
+    updateAndRenderCalendar(updateYear, updateMonth);
 });
 
 pageRightBtn.addEventListener("click", () => {
-    if (currentMonth < 12) {
-        currentMonth++;
+    if (updateMonth < 12) {
+        updateMonth++;
+        console.log(updateYear,updateMonth);
     } else {
-        currentYear++;
-        currentMonth = 1;
+        updateYear++;
+        updateMonth = 1;
         CreateDropDownMenu();
+        console.log(updateYear,updateMonth);
     }
-    console.log(updateYear,updateMonth);
-    updateAndRenderCalendar(currentYear, currentMonth);
+    
+    updateAndRenderCalendar(updateYear, updateMonth);
 });
 
 function updateAndRenderCalendar(year, month) {
@@ -62,7 +66,7 @@ function CreateDropDownMenu() {
         const createDropDownItem = document.createElement("a");
         createDropDownItem.className = "dropdown-item";
         createDropDownItem.href = "#";
-        createDropDownItem.textContent = `${currentYear}年${i}月`;
+        createDropDownItem.textContent = `${updateYear}年${i}月`;
 
         //創造li
         const createLiIndropdownMenu = document.createElement("li");
