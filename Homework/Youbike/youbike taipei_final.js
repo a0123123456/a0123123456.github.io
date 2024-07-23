@@ -149,7 +149,3 @@ function fetchYoubikeData() {
 }
 
 //滑鼠指向map的時候要跑出手指
-
-
-
-//加入新北市
