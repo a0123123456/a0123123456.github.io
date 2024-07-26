@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Apple Demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="apple_main.css">
+</head>
+
+<body>
+    <div id="app">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+            <div class="container">
+                <div class="container-fluid d-flex">
+                    <div>
+                        <a class="navbar-brand" href="#">Mock Apple Shop</a>
+
+                    </div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" @click="clickIphone15Pro">iPhone 15 pro</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" @click="clickIphone15">iPhone 15</a>
+                            </li>
+                            <!-- <li class="nav-item">
+                                <a class="nav-link" href="#">iPad(TODO)</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Mac(TODO)</a>
+                            </li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="shop-content">
+            <div class="container for-relative">
+                <div class="title-area mb-3">
+                    <h1>{{titleBuying}}</h1>
+                </div>
+                <div class="total-price">
+                    {{titlePrice}}
+                </div>
+                <div class="row gy-3">
+                    <div class="col-12 col-md-8 main-img-area">
+                        <div id="carouselExampleIndicators" class="carousel slide">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                    aria-label="Slide 3"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                                    aria-label="Slide 4"></button>
+                            </div>
+
+                            <div class="carousel-inner" v-if="selectedCarousel">
+                                <div class="carousel-item active">
+                                    <img :src=selectedCarousel.imgSrc1 class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img :src=selectedCarousel.imgSrc2 class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img :src=selectedCarousel.imgSrc3 class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img :src=selectedCarousel.imgSrc4 class="d-block w-100" alt="...">
+                                </div>
+                            </div>
+
+                            <div class="carousel-inner" v-else-if="i15selectedCarousel">
+                                <div class="carousel-item active">
+                                    <img :src=i15selectedCarousel.imgSrc1 class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img :src=i15selectedCarousel.imgSrc2 class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img :src=i15selectedCarousel.imgSrc3 class="d-block w-100" alt="...">
+                                </div>
+                            </div>
+
+
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 spec-widget">
+                        <section class="model-prefer">
+                            <div class="title mb-4">
+                                <h2 class="fs-4">機型。 <span class="text-black-50">哪一款最適合你？</span></h2>
+                            </div>
+
+                            <div class="mb-2" v-for="model in models" :key="model.id" v-if="show15proModels">
+                                <label
+                                    class="form-control border border-secondary-subtle border-1 rounded-3 p-4 d-flex justify-content-between border"
+                                    :class="{ 'border-blue': modelAlreadySelected === model.id }" role="button"
+                                    @click="selectModel(model.id)">
+                                    <div>
+                                        <p class="model-select">{{ model.model }}</p>
+                                        <p class="monitor-info">{{ model.monitor }}</p>
+                                    </div>
+                                    <div>
+                                        <p class="model-price">{{ model.startPrice }}</p>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="mb-2" v-for="model in i15Models" :key="model.id" v-if="show15Models">
+                                <label
+                                    class="form-control border border-secondary-subtle border-1 rounded-3 p-4 d-flex justify-content-between border"
+                                    :class="{ 'border-blue': i15ModelAlreadySelected === model.id }" role="button"
+                                    @click="i15SelectModel(model.id)">
+                                    <div>
+                                        <p class="model-select">{{ model.model }}</p>
+                                        <p class="monitor-info">{{ model.monitor }}</p>
+                                    </div>
+                                    <div>
+                                        <p class="model-price">{{ model.startPrice }}</p>
+                                    </div>
+                                </label>
+                            </div>
+                            <!-- <div class="mb-2">
+                                <label class="form-control">
+                                    <div>
+                                        <p class="model-select">iPhone 15 Pro Max</p>
+                                        <p class="monitor-info">6.7吋顯示器</p>
+                                    </div>
+                                    <div>
+                                        <p class="model-price">NT$44,900 起</p>
+                                    </div>
+                                </label>
+                            </div> -->
+
+                        </section>
+                        <section class="color-prefer">
+                            <div class="title mb-4">
+                                <h2 class="fs-4">外觀。 <span class="text-black-50">挑選你喜愛的外觀。</span></h2>
+                            </div>
+                            <div class="color-info mb-3 fw-bolder" v-if="show15proModels">
+                                顏色 - {{selectedCarousel.color}}
+                            </div>
+
+                            <div class="color-info mb-3 fw-bolder" v-if="show15Models">
+                                顏色 - {{i15selectedCarousel.color}}
+                            </div>
+
+                            <div class="d-flex gap-2">
+                                <div class="mb-3 " v-for="color in colors" :key="color.id" v-if="show15proModels">
+                                    <div class="color-select border"
+                                        :class="{ 'border-blue': colorAlreadySelected === color.id }" role="button"
+                                        @click="selectColor(color.id)">
+                                        <img class="img-size" :src="color.imgSrc" :alt="color.imgAlt">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 " v-for="color in i15Colors" :key="color.id" v-if="show15Models">
+                                    <div class="color-select border"
+                                        :class="{ 'border-blue': i15ColorAlreadySelected === color.id }" role="button"
+                                        @click="i15selectColor(color.id)">
+                                        <img class="img-size" :src="color.imgSrc" :alt="color.imgAlt">
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- <div class="form-floating">
+                                <input class="form-control" id="" placeholder="Password">
+                                <label >Password</label>
+                            </div> -->
+                        </section>
+                        <section class="storage-prefer">
+                            <div class="title mb-4">
+                                <h2 class="fs-4">儲存裝置。 <span class="text-black-50">你需要多少儲存空間？</span></h2>
+                            </div>
+                            <div class="mb-2" v-for="storage in storages" :key="storage.id"
+                                v-if="show15proModels  && modelAlreadySelected===1">
+                                <label
+                                    class="form-control border border-secondary-subtle border-1 rounded-3 p-4 d-flex justify-content-between"
+                                    :class="{ 'border-blue': storageAlreadySelected === storage.id }" role="button"
+                                    @click="selectStorage(storage.id)">
+
+                                    <div>
+
+                                        <p class=" model-select">{{storage.storageContent}}</p>
+
+                                    </div>
+
+                                    <div>
+
+                                        <p class="model-price">{{storage.price}}</p>
+
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="mb-2" v-for="storage in proMaxStorages" :key="storage.id"
+                                v-if="show15proModels && modelAlreadySelected===2">
+                                <label
+                                    class="form-control border border-secondary-subtle border-1 rounded-3 p-4 d-flex justify-content-between"
+                                    :class="{ 'border-blue': storageAlreadySelected === storage.id }" role="button"
+                                    @click="selectStorage(storage.id)">
+
+                                    <div>
+
+                                        <p class=" model-select">{{storage.storageContent}}</p>
+
+                                    </div>
+
+                                    <div>
+
+                                        <p class="model-price">{{storage.price}}</p>
+
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="mb-2" v-for="storage in i15Storages" :key="storage.id" v-if="show15Models && i15ModelAlreadySelected===1">
+                                <label
+                                    class="form-control border border-secondary-subtle border-1 rounded-3 p-4 d-flex justify-content-between"
+                                    :class="{ 'border-blue': i15StorageAlreadySelected === storage.id }" role="button"
+                                    @click="i15SelectStorage(storage.id)">
+
+                                    <div>
+
+                                        <p class=" model-select">{{storage.storageContent}}</p>
+
+                                    </div>
+
+                                    <div>
+
+                                        <p class="model-price">{{storage.price}}</p>
+
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="mb-2" v-for="storage in i15PlusStorages" :key="storage.id" v-if="show15Models && i15ModelAlreadySelected===2">
+                                <label
+                                    class="form-control border border-secondary-subtle border-1 rounded-3 p-4 d-flex justify-content-between"
+                                    :class="{ 'border-blue': i15StorageAlreadySelected === storage.id }" role="button"
+                                    @click="i15SelectStorage(storage.id)">
+
+                                    <div>
+
+                                        <p class=" model-select">{{storage.storageContent}}</p>
+
+                                    </div>
+
+                                    <div>
+
+                                        <p class="model-price">{{storage.price}}</p>
+
+                                    </div>
+                                </label>
+                            </div>
+
+                            
+                            <!-- <div class="mb-2">
+                        <label class="form-control">
+                            <div>
+                                <p class="model-select">256GB</p>
+                            </div>
+                            <div>
+                                <p class="model-price">NT$40,400 起</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-control">
+                            <div>
+                                <p class="model-select">512GB</p>
+                            </div>
+                            <div>
+                                <p class="model-price">NT$47,400 起</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-control">
+                            <div>
+                                <p class="model-select">1TB</p>
+                            </div>
+                            <div>
+                                <p class="model-price">NT$54,400 起</p>
+                            </div>
+                        </label>
+                    </div> -->
+                            <!-- <div class="form-floating">
+                                <input class="form-control" id="" placeholder="Password">
+                                <label >Password</label>
+                            </div> -->
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- v-if="allOptionsSelected || i15AllOptionsSelected" -->
+        <div class="for-color" v-if="allOptionsSelected || i15AllOptionsSelected">
+            <div class="container text-start">
+                <div class="row summary-flex-tool">
+                    <div class="col summary-img">
+                        <div class="your-new">
+                            <span>你的全新</span>
+                        </div>
+
+                        <div class="product-name" v-if="show15proModels">
+                            <span>{{ printSelectedModel }}。</span>
+                        </div>
+
+                        <div class="product-name" v-if="show15Models">
+                            <span>{{ i15PrintSelectedModel }}。</span>
+                        </div>
+
+                        <div class="build-for-you mb-5">
+                            <span>依你的需求量身打造。</span>
+                        </div>
+
+                        <div class="box-for-img" v-if="show15proModels">
+                            <img class="buying-img" :src=selectedBuyingImage.buyingImg alt="">
+                        </div>
+
+                        <div class="" v-if="show15Models">
+                            <img class="buying-img" :src=i15SelectedBuyingImage.buyingImg alt="">
+                        </div>
+
+                    </div>
+
+
+                    <div class="col">
+
+                        <div class="summary-totalInfo" v-if="show15proModels && modelAlreadySelected===1 ">
+                            <div class="summary-product">
+                                <p>{{ printSelectedModel }} {{printSelectedStorage}} {{printSelectedColor}}</p>
+                            </div>
+                            <div class="summary-price">
+                                <p>{{printSelectedPrice}}</p>
+                            </div>
+                        </div>
+
+                        <div class="summary-totalInfo" v-if="show15proModels && modelAlreadySelected===2">
+                            <div class="summary-product">
+                                <p>{{ printSelectedModel }} {{ProMaxPrintSelectedStorage}} {{printSelectedColor}}</p>
+                            </div>
+                            <div class="summary-price">
+                                <p>{{ProMaxPrintSelectedPrice}}</p>
+                            </div>
+                        </div>
+
+                        <div class="summary-totalInfo" v-if="show15Models && i15ModelAlreadySelected===1">
+                            <div class="summary-product">
+                                <p>{{ i15PrintSelectedModel }} {{i15PrintSelectedStorage}} {{i15PrintSelectedColor}}</p>
+                            </div>
+                            <div class="summary-price">
+                                <p>{{i15PrintSelectedPrice}}</p>
+                            </div>
+                        </div>
+
+                        <div class="summary-totalInfo" v-if="show15Models && i15ModelAlreadySelected===2">
+                            <div class="summary-product">
+                                <p>{{ i15PrintSelectedModel }} {{i15PlusPrintSelectedStorage}} {{i15PrintSelectedColor}}</p>
+                            </div>
+                            <div class="summary-price">
+                                <p>{{i15PlusPrintSelectedPrice}}</p>
+                            </div>
+                        </div>
+
+                        <div class="summary-content">
+                            <p>
+                                需要一點時間嗎？<br>
+                                將這部裝置收藏到「你的收藏」，即可保留你選擇的所有配置，你可以隨時從上次離開處接續進行。
+                            </p>
+                        </div>
+
+                        <div class="summary-billinfo">
+                            <p>
+                                你所在地區的運送詳細資訊將在「結帳」顯示。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="summary-get">
+                            <p>立即訂購。店內取貨：</p>
+                        </div>
+                        <div class="summary-get">
+                            <p>今天，地點：Apple 台北 101</p>
+                        </div>
+                        <div class="summary-get">
+                            <a href="#">查看其他直營店</a>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-primary shopping-bag disabled">加入購物袋</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container p-5">
+            <div>
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                aria-controls="flush-collapseOne">
+                                <h2>常見問題</h2>
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <div class="accordion" id="accordionExample">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseOne" aria-expanded="true"
+                                                aria-controls="collapseOne">
+                                                為什麼要在 apple.com 購買不含 SIM 卡的 iPhone？
+                                            </button>
+                                        </h2>
+                                        <div id="collapseOne" class="accordion-collapse collapse show"
+                                            data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <strong>自 apple.com 購買的未連接電信業者網路方案的 iPhone
+                                                    都已解鎖，因此你不必受限於單一網路供應商或多年的服務合約。你可以選擇適合自己的網路及資費方案。你的全新 iPhone
+                                                    啟用後會保持解鎖狀態，這表示你可以使用任何為 iPhone 提供服務的網路。
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                                aria-expanded="false" aria-controls="collapseTwo">
+                                                哪些電信業者提供 5G 服務？
+                                            </button>
+                                        </h2>
+                                        <div id="collapseTwo" class="accordion-collapse collapse"
+                                            data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <strong>iPhone 15 Pro、iPhone 15、iPhone 14、iPhone 13、以及 iPhone SE 均支援
+                                                    5G。要連接
+                                                    5G，須透過提供 5G 服務的網路供應商來啟用你的 iPhone。部分供應商可能要求使用 5G 服務方案或新的 SIM
+                                                    卡。請洽詢你的供應商，以取得進一步資訊。 請在這裡(以新視窗開啟)進一步了解你所在國家或地區的網路供應商。
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                                aria-expanded="false" aria-controls="collapseThree">
+                                                我的 iPhone 在全世界都能使用嗎？
+                                            </button>
+                                        </h2>
+                                        <div id="collapseThree" class="accordion-collapse collapse"
+                                            data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <strong>所有 iPhone 機型均是全球通用的手機，讓你幾乎可在任何地方使用。你可以在全球超過 200 個國家或地區透過 GSM
+                                                    網路進行國際漫遊。如果你透過無線電信業者分期付款購買 iPhone，請聯絡他們以確認你是否可進行國際漫遊。
+                                                    5G 與 LTE 數據服務的供應狀況視國家或地區而異，並視電信業者支援的特定 5G 與 LTE
+                                                    無線電頻率而定。請洽詢你的電信業者，進一步了解國際漫遊注意事項與資費說明。
+                                                    按電信業者與國家或地區查看 iPhone 對 5G 與 LTE 網路的支援情況
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                                                aria-expanded="false" aria-controls="collapseFour">
+                                                移轉資料和設定我的新 iPhone 容易嗎？
+                                            </button>
+                                        </h2>
+                                        <div id="collapseFour" class="accordion-collapse collapse"
+                                            data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <strong>容易，iCloud 能把你的各種設定、照片、app 及文件，順暢無縫地移轉到新裝置。只要在設定新裝置時登入
+                                                    iCloud，存取上一部裝置的 iCloud 備份，幾分鐘即可設定完成。
+                                                    沒有足夠的 iCloud 儲存空間以完成備份？iCloud 會提供足夠的暫時儲存空間，以確保你能備份裝置，並移轉你所有的資料，不須付費
+                                                    (須使用
+                                                    iOS 15)。
+                                                    透過「快速開始」，你可從 iCloud 備份將資料與內容回復到新的 iPhone。針對搭載 iOS 12.4
+                                                    或以上版本的手機，「快速開始」提供裝置對裝置的移轉選項，讓你以無線方式將所有資料從現有裝置移轉到新裝置。
+                                                    如果你是從 Android 裝置轉用 iPhone，須先下載「移轉到 iOS」app，再依照新 iPhone 上的設定步驟進行。
+                                                    若要了解如何將資料移轉到你的新 iPhone，請參閱 support.apple.com/zh-tw/HT201269(以新視窗開啟)。
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseFive"
+                                                aria-expanded="false" aria-controls="collapseFive">
+                                                我可以將 iPhone 退貨嗎？
+                                            </button>
+                                        </h2>
+                                        <div id="collapseFive" class="accordion-collapse collapse"
+                                            data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <strong>可以。如果你改變心意，不想再保留 iPhone，可以選擇退貨給我們。iPhone
+                                                    退回時必須狀況良好，置於原始包裝內，原始包裝須包含所有配件、使用手冊和說明。退貨須遵守 Apple 的銷售及退款政策。
+                                                    進一步了解退貨、退款與換貨
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="for-footer-color">
+            <div class="container">
+                <div class="footer">
+                    <p>價格皆含稅與運送費用。</p>
+                    <p>
+                        * 上述費用為近似值，可能會隨時間變動。<br>
+                        ** 折抵換購服務由 Apple
+                        的換購服務合作夥伴提供。折抵金額報價僅為預估價，實際折抵換購價值可能低於估價。實際換購估價視你折抵換購裝置的狀況、推出年份與機型而有所差異。並非所有裝置均符合折抵條件。你必須已達法定成年年齡，才有折抵換購的資格，以獲享折抵優惠或取得
+                        Apple Store 禮品卡。你現有裝置的價值，可能適用於購買新 Apple
+                        裝置。實際獲得的換購價值，是根據收到符合條件的裝置，是否吻合你在估價時所提供的描述而定。可能須按照新裝置的全額售價繳納加值型營業稅。店內換購須出示政府核發的有效照片證件，才能享有此項優惠
+                        (當地法律可能要求保存這份資訊)。優惠可能無法在所有直營店提供，線上和店內折抵換購的估價可能會有所不同。部分直營店可能會有額外的要求。Apple 直營店不提供電腦換購。Apple
+                        的換購服務合作夥伴保留以任何理由拒絕、取消任何折抵換購交易，或限制接受任何裝置 (及其數量) 參與本優惠的權利。更多詳情可自 Apple
+                        的換購服務合作夥伴取得，以了解符合換購及回收條件的裝置。須遵守
+                        Apple 的換購服務合作夥伴所訂立的其他條款。<br>
+                    </p>
+                    <p>
+                        °° Apple TV+ 優惠僅適用於新訂戶和符合資格的重新訂閱用戶。免費試用結束後，每月 NT$250。每個 Apple ID
+                        僅可獲享一次優惠，如果你是「家人共享」群組的成員，不論你或家人購買多少部裝置，每個家庭僅可獲享一次優惠。如果你或你的家人之前已接受 Apple TV+
+                        三個月或一年免費訂閱服務優惠，則不再適用此優惠。優惠在符合條件裝置啟用後的 3 個月內有效。訂閱方案將自動續訂直到取消為止。須受限制與其他條款約束。<br>
+                    </p>
+                    <p>
+                        僅適用於新訂戶。試用結束後，每月 NT$165。優惠限時提供，僅適用於擁有符合條件新裝置的 Apple Music 新訂戶。符合條件的音訊裝置兌換優惠，須使用連接或配對執行最新 iOS 或
+                        iPadOS 的 Apple 裝置。Apple Watch 兌換優惠，須使用連接或配對執行最新 iOS 的
+                        iPhone。優惠在符合條件裝置啟用後的三個月內有效。不論購買多少部符合條件的裝置，每個
+                        Apple ID 僅可獲享一次優惠。訂閱方案將自動續訂直到取消為止。須受限制與其他條款約束。<br>
+                    </p>
+                    <p>
+                        Apple Arcade 優惠僅適用於新訂戶和符合資格的重新訂閱用戶。免費試用結束後，每月 NT$220。每個 Apple ID
+                        僅可獲享一次優惠，如果你是「家人共享」群組的成員，不論你或家人購買多少部裝置，每個家庭僅可獲享一次優惠。如果你或你的家人之前已接受 Apple Arcade
+                        三個月免費訂閱服務優惠，則不再適用此優惠。優惠在符合條件裝置啟用後的 3 個月內有效。訂閱方案將自動續訂直到取消為止。須受限制與其他條款約束。<br>
+                    </p>
+                    <P>
+                        1.顯示器的圓角具有優美的曲線設計，並呈現在一個標準矩形之內。以標準矩形量測時，螢幕的對角線長度為 6.06 吋 (iPhone 14、iPhone 13)、6.12 吋 (iPhone
+                        15、iPhone 15 Pro)、6.68 吋 (iPhone 14 Plus) 或 6.69 吋 (iPhone 15 Plus、iPhone 15 Pro
+                        Max)。實際可視區較小。<br>
+                    </P>
+                    <P>
+                        2.可用儲存空間會隨著眾多因素而減少並有所差異。標準配置會使用約 12GB 至 17GB 的空間，包括 iOS 17 與其最新功能，以及可刪除的各款 Apple app。可刪除的各款
+                        Apple
+                        app
+                        約會佔用 4.5GB 的空間，你可隨時從 App Store 再次下載這些 app。儲存容量會隨軟體版本、設定與 iPhone 機型而有所變動。<br>
+                    </P>
+                    <P>3.iPhone 14、iPhone 14 Pro、iPhone 15 與 iPhone 15 Pro 系列機型能偵測嚴重車禍，並為你撥打求救電話。須透過行動網路連線或 Wi-Fi
+                        通話使用。<br>
+                    </P>
+                    <P>
+                        4.電池使用時間聲明適用於較大尺寸機型。所列舉的電池效能因受網路配置與許多其他因素影響；實際結果可能有所差異。電池的充電循環次數有限，最終仍可能須要更換。電池使用時間與充電次數視使用情況及設定狀態而異。請參閱
+                        apple.com/tw/batteries 與 apple.com/tw/iphone/battery.html，以取得進一步資訊。<br>
+                    </P>
+                    <P>
+                        5.所列舉的電池效能因受網路配置與許多其他因素影響；實際結果可能有所差異。電池的充電循環次數有限，最終仍可能須要更換。電池使用時間與充電次數視使用情況及設定狀態而異。請參閱
+                        apple.com/tw/batteries 與 apple.com/tw/iphone/battery.html，以取得進一步資訊。<br>
+                    </P>
+                    <P>
+                        6.須使用速度達 10Gb/s 的 USB 3 連接線。
+                        我們會透過你的網際網路 IP 位址所對應的地理區域，或你上次瀏覽 Apple 網站輸入的位置資訊，估計你的約略位置。</p>
+                    </P>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="apple_main.js"></script>
+</body>
+
+</html>
