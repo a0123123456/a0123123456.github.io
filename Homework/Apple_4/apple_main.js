@@ -12,7 +12,7 @@ const app = createApp({
                 {
                     id: 2,
                     model: "iPhone 15 Pro Max",
-                    startPrice: "NT$39,900 起",
+                    startPrice: "NT$44,900 起",
                     monitor: '6.7吋顯示器'
                 }
             ],
