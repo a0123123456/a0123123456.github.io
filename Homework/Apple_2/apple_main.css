@@ -50,8 +50,11 @@
   padding-top: 50px;
 }
 
-.buying-img {
+.box-for-img{
   width: 390px;
+}
+.buying-img {
+  width: 100%;
 }
 
 .summary-product > p {
@@ -276,9 +279,17 @@
   }
   .shopping-bag{
     margin-bottom: 50px;
+    width: 100%;
   }
   /* .summary-flex-tool{
     display: flex;
     flex-direction: column;
   } */
+  .box-for-img{
+    width: 100%;
+  }
+  .buying-img {
+    width: 100%;
+  }
+  
 }
